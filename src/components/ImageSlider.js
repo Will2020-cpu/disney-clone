@@ -13,6 +13,7 @@ const ImageSlider = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
+        pauseOnHover: true
     }
     return (
         <Fragment>
@@ -24,10 +25,10 @@ const ImageSlider = () => {
                     <img src="/images/slider-badag.jpg" />
                 </Wrap>
                 <Wrap>
-                    <img src="/images/slider-scale.jpg"/>
+                    <img src="/images/slider-scale.jpg" />
                 </Wrap>
                 <Wrap>
-                    <img src="/images/slider-scales.jpg"/>
+                    <img src="/images/slider-scales.jpg" />
                 </Wrap>
             </Carousel>
         </Fragment>
