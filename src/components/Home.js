@@ -2,13 +2,17 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import ImageSlider from './ImageSlider'
 import Viewer from './Viewer'
+import Movies from './Movies'
+
+
 
 const Home = () => {
     return (
         <Fragment>
             <Container>
                 <ImageSlider />
-                <Viewer/>
+                <Viewer />
+                <Movies />
             </Container>
         </Fragment>
     )
