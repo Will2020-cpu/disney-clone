@@ -57,6 +57,7 @@ const Carousel = styled(Slider)`
         overflow:visible;
     }
     
+
     button {
         z-index:1;
     }

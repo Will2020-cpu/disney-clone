@@ -34,8 +34,6 @@ const Details = () => {
                 <Description>
                     A Chinese mom who’s sad when her grown son leaves home gets another chance at motherhood when one of her dumplings springs to life. But she finds that nothing stays cute and small forever.
                 </Description>
-
-
             </Container>
         </Fragment>
     )
@@ -61,7 +59,6 @@ const Background = styled.div`
     z-index:-1;
     opacity:0.8;
 
-
     img{
         width:100%;
         height:100%;
@@ -74,7 +71,6 @@ const ImageTitle = styled.div`
     min-height:170px;
     width: 35vw;
     min-width:200px;
-    
 
     img{
         width:100%;
@@ -138,8 +134,15 @@ const GroupButton = styled(AddButton)`
 
 const SubTitle = styled.div`
     color:rgb(249,249,249);
+    font-size:15px;
+    min-height:20px;
+    margin-top:26px;
 `
 
 const Description = styled.div`
+    line-height:1.4;
+    font-size:20px;
+    margin-top:25px;
+    color: rgb(249,249,249);
 
 `
