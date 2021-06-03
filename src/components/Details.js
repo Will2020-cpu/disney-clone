@@ -25,9 +25,17 @@ const Details = () => {
                         <span>+</span>
                     </AddButton>
                     <GroupButton>
-
+                        <img src="/images/group-icon.png" />
                     </GroupButton>
                 </Control>
+                <SubTitle>
+                    2018 • 7m • Family, Fantasy, Kids, Animation
+                </SubTitle>
+                <Description>
+                    A Chinese mom who’s sad when her grown son leaves home gets another chance at motherhood when one of her dumplings springs to life. But she finds that nothing stays cute and small forever.
+                </Description>
+
+
             </Container>
         </Fragment>
     )
@@ -37,8 +45,6 @@ export default Details
 
 
 //Componentes
-
-
 const Container = styled.div`
     min-height:calc(100vh - 70px);
     padding: 0 calc(3.5vh - 5px);
@@ -125,6 +131,15 @@ const AddButton = styled.button`
     }
 `
 
-const GroupButton = styled.button`
+const GroupButton = styled(AddButton)`
+    background : rgb(0,0,0);
+    
+`
+
+const SubTitle = styled.div`
+    color:rgb(249,249,249);
+`
+
+const Description = styled.div`
 
 `
