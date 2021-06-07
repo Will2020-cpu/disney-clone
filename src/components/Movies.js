@@ -1,18 +1,50 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import { selectMovies } from '../features/movies/movieSlice'
+import { Link } from 'react-router-dom'
 
+const Movies = () => {
+    const movies = useSelector(selectMovies)
+    const Recomendado = movies.filter(item => item.type === "recomendado")
+    const New = movies.filter(item => item.type === "new")
+    const Originales = movies.filter(item => item.type === "original")
 
-const Movies = ({ Movies }) => {
-    console.log(Movies)
     return (
         <Fragment>
             <Container>
-                <h4>Recomendado para ti!</h4>
+                <Title>Recomendado para ti!</Title>
                 <Content>
                     {
-                        Movies.map(item=>(
+                        Recomendado.map(item => (
                             <Wrap key={item.id}>
-                                <img src={item.cardImg} alt={item.title}/>
+                                <Link to={`/details/${item.id}`}>
+                                    <img src={item.cardImg} alt={item.titulo} />
+                                </Link>
+                            </Wrap>
+                        ))
+                    }
+                </Content>
+                <Title>Contenido nuevo <span>👽</span></Title>
+                <Content>
+                    {
+                        New.map(item => (
+                            <Wrap key={item.id}>
+                                <Link to={`/details/${item.id}`}>
+                                    <img src={item.cardImg} alt={item.titulo} />
+                                </Link>
+                            </Wrap>
+                        ))
+                    }
+                </Content>
+                <Title>Originales</Title>
+                <Content>
+                    {
+                        Originales.map(item => (
+                            <Wrap>
+                                <Link to={`/details/${item.id}`}>
+                                    <img src={item.cardImg} alt={item.titulo} />
+                                </Link>
                             </Wrap>
                         ))
                     }
@@ -27,6 +59,10 @@ export default Movies
 //Componentes
 const Container = styled.div`
 
+`
+
+const Title = styled.h4`
+    margin-top:60px;
 `
 
 
@@ -44,12 +80,20 @@ const Wrap = styled.div`
     box-shadow : rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
     transition: all 250ms cubic-bezier(0.25, 0.46,0.45,0.94) 0s;
     cursor:pointer;
-
+    position:relative;
+    padding-top: 56.25%;
 
     img{
         width:100%;
         height:100%;
         object-fit:cover;
+        position:absolute;
+        display:block;
+        inset:0px;
+        opacity:1;
+        top:0;
+        z-index:1;
+        transition: opacity 500ms ease-in-out 0s;
     }
 
     &:hover{

@@ -1,34 +1,35 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
+
 const header = () => {
     return (
         <Fragment>
             <Nav>
                 <Logo src="/images/logo.svg" />
                 <NavMenu>
-                    <a>
-                        <img src="/images/home-icon.svg" />
+                    <a href="/">
+                        <img src="/images/home-icon.svg" alt="home-icon"/>
                         <span>INICIO</span>
                     </a>
-                    <a>
-                        <img src="/images/search-icon.svg" />
+                    <a href="/">
+                        <img src="/images/search-icon.svg" alt="search-icon"/>
                         <span>BUSCAR</span>
                     </a>
-                    <a>
-                        <img src="/images/watchlist-icon.svg" />
+                    <a href="/">
+                        <img src="/images/watchlist-icon.svg" alt="watchlist-icon"/>
                         <span>AGREGAR LISTA</span>
                     </a>
-                    <a>
-                        <img src="/images/original-icon.svg" />
+                    <a href="/">
+                        <img src="/images/original-icon.svg" alt="original-icon"/>
                         <span>ORIGINALES</span>
                     </a>
-                    <a>
-                        <img src="/images/movie-icon.svg" />
+                    <a href="/">
+                        <img src="/images/movie-icon.svg" alt="movie-icon"/>
                         <span>PELICULAS</span>
                     </a>
-                    <a>
-                        <img src="/images/series-icon.svg" />
+                    <a href="/">
+                        <img src="/images/series-icon.svg" alt="serios-icon"/>
                         <span>SERIES</span>
                     </a>
                 </NavMenu>
@@ -65,6 +66,8 @@ const NavMenu = styled.div`
         display:flex;
         align-items:center;
         padding: 0 12px;
+        color:#fff;
+        text-decoration:none;
         
         img{
             height:20px;

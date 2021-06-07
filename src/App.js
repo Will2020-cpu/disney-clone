@@ -8,8 +8,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
-
 } from 'react-router-dom'
 
 
@@ -24,7 +22,7 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/details">
+          <Route path="/details/:id">
             <Detail />
           </Route>
           <Route path="/">

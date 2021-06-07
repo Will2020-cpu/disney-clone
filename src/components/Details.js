@@ -1,38 +1,58 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useParams } from 'react-router-dom'
+import db from '../firebase';
 
 
 const Details = () => {
+    const { id } = useParams();
+    const [movieData, setMovieData] = useState({});
+
+    useEffect(() => {
+        db.collection("movies")
+            .doc(id)
+            .get().then((doc) => {
+                if (doc.exists) {
+                    setMovieData(doc.data());
+                } else {
+                    console.log("No se encontraron datos de la pelicula en 🔥")
+                }
+            })
+            .catch((error) => {
+                console.log("Error intentado obtener la pelicula 😭", error)
+            })
+    }, [id])
+
     return (
         <Fragment>
             <Container>
                 <Background>
-                    <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/4F39B7E16726ECF419DD7C49E011DD95099AA20A962B0B10AA1881A70661CE45/scale?width=1440&aspectRatio=1.78&format=jpeg" />
+                    <img src={movieData.fondo} alt={movieData.titulo} />
                 </Background>
                 <ImageTitle>
-                    <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/D7AEE1F05D10FC37C873176AAA26F777FC1B71E7A6563F36C6B1B497CAB1CEC2/scale?width=1440&aspectRatio=1.78" />
+                    <img src={movieData.tituloImg} alt={movieData.titulo} />
                 </ImageTitle>
                 <Control>
                     <PlayButton>
-                        <img src="/images/play-icon-black.png" />
+                        <img src="/images/play-icon-black.png" alt="play"/>
                         <span>Play</span>
                     </PlayButton>
                     <TrailerButton>
-                        <img src="/images/play-icon-white.png" />
+                        <img src="/images/play-icon-white.png" alt="trailer"/>
                         <span>Trailer</span>
                     </TrailerButton>
                     <AddButton>
                         <span>+</span>
                     </AddButton>
                     <GroupButton>
-                        <img src="/images/group-icon.png" />
+                        <img src="/images/group-icon.png" alt="group"/>
                     </GroupButton>
                 </Control>
                 <SubTitle>
-                    2018 • 7m • Family, Fantasy, Kids, Animation
+                    {movieData.subtitulo}
                 </SubTitle>
                 <Description>
-                    A Chinese mom who’s sad when her grown son leaves home gets another chance at motherhood when one of her dumplings springs to life. But she finds that nothing stays cute and small forever.
+                    {movieData.descripcion}
                 </Description>
             </Container>
         </Fragment>
@@ -57,7 +77,7 @@ const Background = styled.div`
     right:0;
     bottom:0;
     z-index:-1;
-    opacity:0.8;
+    opacity:0.6;
 
     img{
         width:100%;
@@ -83,6 +103,7 @@ const ImageTitle = styled.div`
 const Control = styled.div`
     display:flex;
     align-items:center;
+    margin:50px 0;
 `
 
 const PlayButton = styled.button`

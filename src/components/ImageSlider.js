@@ -19,16 +19,16 @@ const ImageSlider = () => {
         <Fragment>
             <Carousel {...settings}>
                 <Wrap>
-                    <img src="/images/slider-badging.jpg" />
+                    <img src="/images/slider-badging.jpg" alt="slider1"/>
                 </Wrap>
                 <Wrap>
-                    <img src="/images/slider-badag.jpg" />
+                    <img src="/images/slider-badag.jpg" alt="slider2"/>
                 </Wrap>
                 <Wrap>
-                    <img src="/images/slider-scale.jpg" />
+                    <img src="/images/slider-scale.jpg" alt="slider3"/>
                 </Wrap>
                 <Wrap>
-                    <img src="/images/slider-scales.jpg" />
+                    <img src="/images/slider-scales.jpg" alt="slider4"/>
                 </Wrap>
             </Carousel>
         </Fragment>
