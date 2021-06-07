@@ -1,18 +1,30 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import ImageSlider from './ImageSlider'
 import Viewer from './Viewer'
 import Movies from './Movies'
-
+import db from '../firebase'
 
 
 const Home = () => {
+    const [movies,setMovies] = useState([])
+
+
+    useEffect(()=>{
+         db.collection("movies").onSnapshot((snapshot)=>{
+            let tempMovies = snapshot.docs.map((doc)=>{
+                return { id:doc.id,... doc.data()}
+            })
+            setMovies(tempMovies)
+        })
+    },[])
+
     return (
         <Fragment>
             <Container>
                 <ImageSlider />
                 <Viewer />
-                <Movies />
+                <Movies Movies={movies}/>
             </Container>
         </Fragment>
     )
