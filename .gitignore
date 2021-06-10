@@ -7,10 +7,11 @@
 
 # testing
 /coverage
+/server
+
 
 # production
 /build
-
 
 
 /src/firebase.js
