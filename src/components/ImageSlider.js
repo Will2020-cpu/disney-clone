@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const ImageSlider = () => {
     let settings = {
+        arrows:false,
         dots: true,
         infinite: true,
         speed: 500,
@@ -40,7 +41,7 @@ export default ImageSlider
 
 //Componentes
 const Carousel = styled(Slider)`
-    margin-top :20px;
+    margin-top:60px;
     
     ul li button {
         &:before{

@@ -27,11 +27,10 @@ export default Login
 //Componentes
 const Container = styled.div`
     position:relative;
-    height:calc(100vh - 70px);
+    height:calc(100vh - 80px);
     display:flex;
-    align-items:top;
+    align-items:center;
     justify-content:center;
-
     &:before{
         content:"";
         top:0;
@@ -47,7 +46,7 @@ const Container = styled.div`
 
 const Content = styled.div`
     max-width:650px;
-    padding:80px 40px;
+    padding:100px 40px;
     width: 80%;
     display:flex;
     align-items:center;
@@ -55,7 +54,6 @@ const Content = styled.div`
 `
 
 const ContentLogoOne = styled.img`
-
 `
 
 const GetButton = styled.a`
@@ -73,7 +71,6 @@ const GetButton = styled.a`
     letter-spacing:1.5px;
     margin-top:8px;
     margin-bottom:10px;
-
     &:hover{
         background:#0483ee;
     }

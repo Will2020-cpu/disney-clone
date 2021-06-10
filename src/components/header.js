@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUserName, selectUserEmail, selectUserPicture, setUser, setUserRemove } from '../features/user/userSlice'
 import { auth, provider } from '../firebase'
-import { useHistory } from 'react-router-dom'
+import { useHistory,useLocation } from 'react-router-dom'
 
 const Header = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const location = useLocation()
     const userName = useSelector(selectUserName);
     const userPicture = useSelector(selectUserPicture)
 
@@ -50,34 +51,34 @@ const Header = () => {
 
     return (
         <Fragment>
-            <Nav>
+            <Nav history={history.location.pathname === "/"}>
                 <Logo src="/images/logo.svg" />
                 {!userName ? (
                     <Login onClick={handleAuth}>login</Login>
                 ) : (
                     <Fragment>
                         <NavMenu>
-                            <a href="/">
+                            <a href="/home">
                                 <img src="/images/home-icon.svg" alt="home-icon" />
                                 <span>INICIO</span>
                             </a>
-                            <a href="/">
+                            <a href="/home">
                                 <img src="/images/search-icon.svg" alt="search-icon" />
                                 <span>BUSCAR</span>
                             </a>
-                            <a href="/">
+                            <a href="/home">
                                 <img src="/images/watchlist-icon.svg" alt="watchlist-icon" />
                                 <span>AGREGAR LISTA</span>
                             </a>
-                            <a href="/">
+                            <a href="/home">
                                 <img src="/images/original-icon.svg" alt="original-icon" />
                                 <span>ORIGINALES</span>
                             </a>
-                            <a href="/">
+                            <a href="/home">
                                 <img src="/images/movie-icon.svg" alt="movie-icon" />
                                 <span>PELICULAS</span>
                             </a>
-                            <a href="/">
+                            <a href="/home">
                                 <img src="/images/series-icon.svg" alt="serios-icon" />
                                 <span>SERIES</span>
                             </a>
@@ -106,8 +107,8 @@ const Nav = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  height: 70px;
-  background-color: #090b13;
+  height: 60px;
+  background-color: ${props => props.history ? "transparent" : "#090b13"};
   display: flex;
   justify-content: space-between;
   align-items: center;
