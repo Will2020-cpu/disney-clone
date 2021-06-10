@@ -17,15 +17,14 @@ function App() {
     <div>
       <Router>
         <Header />
-
         <Switch>
-          <Route path="/login">
+          <Route path="/" exact>
             <Login />
           </Route>
           <Route path="/details/:id">
             <Detail />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <Home />
           </Route>
         </Switch>
